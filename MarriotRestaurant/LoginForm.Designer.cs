@@ -75,6 +75,7 @@
             txtPwd.Name = "txtPwd";
             txtPwd.Size = new Size(335, 28);
             txtPwd.TabIndex = 5;
+            txtPwd.UseSystemPasswordChar = true;
             // 
             // lblPwd
             // 
@@ -109,6 +110,7 @@
             btnClear.TabIndex = 7;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // linkLabelForget
             // 
@@ -151,10 +153,14 @@
             Controls.Add(lblUname);
             Controls.Add(lblTitle);
             Font = new Font("Verdana", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "LoginForm";
             Text = "Marriot Restraunt";
+            Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

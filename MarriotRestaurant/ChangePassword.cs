@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace MarriotRestaurant
 {
-    public partial class MainForm : Form
+    public partial class ChangePassword : Form
     {
-        public MainForm()
+        public ChangePassword()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            lblUser.Text = $"Welcome, {LoginForm._Fname} {LoginForm._Lname} to Marriot Restrurant ";
         }
     }
 }

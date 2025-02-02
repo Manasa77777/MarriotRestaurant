@@ -69,28 +69,28 @@
             // 
             addItemsMenu.Image = Properties.Resources.add;
             addItemsMenu.Name = "addItemsMenu";
-            addItemsMenu.Size = new Size(224, 26);
+            addItemsMenu.Size = new Size(176, 26);
             addItemsMenu.Text = "&Add Items";
             // 
             // editItemsMenu
             // 
             editItemsMenu.Image = Properties.Resources.edit;
             editItemsMenu.Name = "editItemsMenu";
-            editItemsMenu.Size = new Size(224, 26);
+            editItemsMenu.Size = new Size(176, 26);
             editItemsMenu.Text = "&Edit Items";
             // 
             // deleteItemsMenu
             // 
             deleteItemsMenu.Image = Properties.Resources.bin;
             deleteItemsMenu.Name = "deleteItemsMenu";
-            deleteItemsMenu.Size = new Size(224, 26);
+            deleteItemsMenu.Size = new Size(176, 26);
             deleteItemsMenu.Text = "&Delete items";
             // 
             // exitItemMenu
             // 
             exitItemMenu.Image = Properties.Resources.exit;
             exitItemMenu.Name = "exitItemMenu";
-            exitItemMenu.Size = new Size(224, 26);
+            exitItemMenu.Size = new Size(176, 26);
             exitItemMenu.Text = "E&xit ";
             // 
             // userToolStripMenuItem
@@ -104,28 +104,28 @@
             // 
             newUserMenu.Image = Properties.Resources.newuser;
             newUserMenu.Name = "newUserMenu";
-            newUserMenu.Size = new Size(224, 26);
+            newUserMenu.Size = new Size(207, 26);
             newUserMenu.Text = "Create &New User";
             // 
             // deleteUserMenu
             // 
             deleteUserMenu.Image = Properties.Resources.deleteuser;
             deleteUserMenu.Name = "deleteUserMenu";
-            deleteUserMenu.Size = new Size(224, 26);
+            deleteUserMenu.Size = new Size(207, 26);
             deleteUserMenu.Text = "&Delete User";
             // 
             // changePwdUserMenu
             // 
             changePwdUserMenu.Image = Properties.Resources.reset_password;
             changePwdUserMenu.Name = "changePwdUserMenu";
-            changePwdUserMenu.Size = new Size(224, 26);
+            changePwdUserMenu.Size = new Size(207, 26);
             changePwdUserMenu.Text = "Change Pass&word";
             // 
             // viewUserMenu
             // 
             viewUserMenu.Image = Properties.Resources.View_user;
             viewUserMenu.Name = "viewUserMenu";
-            viewUserMenu.Size = new Size(224, 26);
+            viewUserMenu.Size = new Size(207, 26);
             viewUserMenu.Text = "&View Users";
             // 
             // newBillMenu
@@ -139,20 +139,21 @@
             // 
             newBillToolStripMenuItem.Image = Properties.Resources.bill;
             newBillToolStripMenuItem.Name = "newBillToolStripMenuItem";
-            newBillToolStripMenuItem.Size = new Size(224, 26);
+            newBillToolStripMenuItem.Size = new Size(149, 26);
             newBillToolStripMenuItem.Text = "&New Bill";
             // 
             // viewBillMenu
             // 
             viewBillMenu.Image = Properties.Resources.view_bill;
             viewBillMenu.Name = "viewBillMenu";
-            viewBillMenu.Size = new Size(224, 26);
+            viewBillMenu.Size = new Size(149, 26);
             viewBillMenu.Text = "V&iew Bill";
             // 
             // lblUser
             // 
             lblUser.AutoSize = true;
-            lblUser.Location = new Point(251, 19);
+            lblUser.BackColor = Color.MediumAquamarine;
+            lblUser.Location = new Point(231, 30);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(73, 25);
             lblUser.TabIndex = 1;
@@ -174,6 +175,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "MainForm";
             Text = "Marriot Restraunt";
+            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

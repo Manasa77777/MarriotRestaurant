@@ -55,7 +55,7 @@
             lblRegister.BackColor = SystemColors.WindowFrame;
             lblRegister.Font = new Font("Verdana", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblRegister.ForeColor = SystemColors.ButtonHighlight;
-            lblRegister.Location = new Point(234, 44);
+            lblRegister.Location = new Point(219, 44);
             lblRegister.Name = "lblRegister";
             lblRegister.Size = new Size(234, 34);
             lblRegister.TabIndex = 0;
@@ -67,7 +67,7 @@
             lblUname.BackColor = SystemColors.WindowFrame;
             lblUname.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUname.ForeColor = SystemColors.ButtonFace;
-            lblUname.Location = new Point(60, 130);
+            lblUname.Location = new Point(45, 130);
             lblUname.Name = "lblUname";
             lblUname.Size = new Size(176, 25);
             lblUname.TabIndex = 1;
@@ -75,17 +75,18 @@
             // 
             // txtUname
             // 
-            txtUname.Location = new Point(293, 131);
+            txtUname.Location = new Point(270, 131);
             txtUname.Name = "txtUname";
-            txtUname.Size = new Size(304, 28);
+            txtUname.Size = new Size(371, 28);
             txtUname.TabIndex = 2;
             // 
             // txtPwd
             // 
-            txtPwd.Location = new Point(293, 173);
+            txtPwd.Location = new Point(270, 173);
             txtPwd.Name = "txtPwd";
-            txtPwd.Size = new Size(304, 28);
+            txtPwd.Size = new Size(371, 28);
             txtPwd.TabIndex = 4;
+            txtPwd.UseSystemPasswordChar = true;
             // 
             // lblPwd
             // 
@@ -93,7 +94,7 @@
             lblPwd.BackColor = SystemColors.WindowFrame;
             lblPwd.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPwd.ForeColor = SystemColors.ButtonFace;
-            lblPwd.Location = new Point(60, 172);
+            lblPwd.Location = new Point(45, 172);
             lblPwd.Name = "lblPwd";
             lblPwd.Size = new Size(167, 25);
             lblPwd.TabIndex = 3;
@@ -101,10 +102,11 @@
             // 
             // txtCPwd
             // 
-            txtCPwd.Location = new Point(293, 212);
+            txtCPwd.Location = new Point(270, 212);
             txtCPwd.Name = "txtCPwd";
-            txtCPwd.Size = new Size(304, 28);
+            txtCPwd.Size = new Size(371, 28);
             txtCPwd.TabIndex = 6;
+            txtCPwd.UseSystemPasswordChar = true;
             // 
             // lblCPwd
             // 
@@ -112,7 +114,7 @@
             lblCPwd.BackColor = SystemColors.WindowFrame;
             lblCPwd.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCPwd.ForeColor = SystemColors.ButtonFace;
-            lblCPwd.Location = new Point(60, 211);
+            lblCPwd.Location = new Point(45, 211);
             lblCPwd.Name = "lblCPwd";
             lblCPwd.Size = new Size(192, 25);
             lblCPwd.TabIndex = 5;
@@ -120,9 +122,9 @@
             // 
             // txtFName
             // 
-            txtFName.Location = new Point(293, 252);
+            txtFName.Location = new Point(270, 252);
             txtFName.Name = "txtFName";
-            txtFName.Size = new Size(304, 28);
+            txtFName.Size = new Size(371, 28);
             txtFName.TabIndex = 8;
             // 
             // lblFName
@@ -131,7 +133,7 @@
             lblFName.BackColor = SystemColors.WindowFrame;
             lblFName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFName.ForeColor = SystemColors.ButtonFace;
-            lblFName.Location = new Point(60, 251);
+            lblFName.Location = new Point(45, 251);
             lblFName.Name = "lblFName";
             lblFName.Size = new Size(184, 25);
             lblFName.TabIndex = 7;
@@ -139,9 +141,9 @@
             // 
             // txtLName
             // 
-            txtLName.Location = new Point(293, 290);
+            txtLName.Location = new Point(270, 290);
             txtLName.Name = "txtLName";
-            txtLName.Size = new Size(304, 28);
+            txtLName.Size = new Size(371, 28);
             txtLName.TabIndex = 10;
             // 
             // lblLName
@@ -150,7 +152,7 @@
             lblLName.BackColor = SystemColors.WindowFrame;
             lblLName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLName.ForeColor = SystemColors.ButtonFace;
-            lblLName.Location = new Point(60, 289);
+            lblLName.Location = new Point(45, 289);
             lblLName.Name = "lblLName";
             lblLName.Size = new Size(180, 25);
             lblLName.TabIndex = 9;
@@ -162,7 +164,7 @@
             lblHQ.BackColor = SystemColors.WindowFrame;
             lblHQ.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHQ.ForeColor = SystemColors.ButtonFace;
-            lblHQ.Location = new Point(60, 333);
+            lblHQ.Location = new Point(44, 333);
             lblHQ.Name = "lblHQ";
             lblHQ.Size = new Size(220, 25);
             lblHQ.TabIndex = 11;
@@ -172,16 +174,16 @@
             // 
             cmbHintQ.FormattingEnabled = true;
             cmbHintQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?" });
-            cmbHintQ.Location = new Point(293, 336);
+            cmbHintQ.Location = new Point(270, 336);
             cmbHintQ.Name = "cmbHintQ";
-            cmbHintQ.Size = new Size(304, 28);
+            cmbHintQ.Size = new Size(371, 28);
             cmbHintQ.TabIndex = 12;
             // 
             // txtHA
             // 
-            txtHA.Location = new Point(294, 378);
+            txtHA.Location = new Point(271, 378);
             txtHA.Name = "txtHA";
-            txtHA.Size = new Size(304, 28);
+            txtHA.Size = new Size(371, 28);
             txtHA.TabIndex = 14;
             // 
             // lblHA
@@ -190,7 +192,7 @@
             lblHA.BackColor = SystemColors.WindowFrame;
             lblHA.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHA.ForeColor = SystemColors.ButtonFace;
-            lblHA.Location = new Point(61, 377);
+            lblHA.Location = new Point(46, 377);
             lblHA.Name = "lblHA";
             lblHA.Size = new Size(197, 25);
             lblHA.TabIndex = 13;
@@ -200,34 +202,37 @@
             // 
             btnCreate.BackColor = Color.DarkKhaki;
             btnCreate.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCreate.Location = new Point(127, 435);
+            btnCreate.Location = new Point(112, 435);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(144, 39);
             btnCreate.TabIndex = 15;
             btnCreate.Text = "Create";
             btnCreate.UseVisualStyleBackColor = false;
+            btnCreate.Click += btnCreate_Click;
             // 
             // btnClear
             // 
             btnClear.BackColor = Color.LightGreen;
             btnClear.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClear.Location = new Point(277, 435);
+            btnClear.Location = new Point(262, 435);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(144, 39);
             btnClear.TabIndex = 16;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnClose
             // 
             btnClose.BackColor = Color.LightCoral;
             btnClose.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.Location = new Point(427, 435);
+            btnClose.Location = new Point(412, 435);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(144, 39);
             btnClose.TabIndex = 17;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // RegistrationForm
             // 
@@ -254,10 +259,14 @@
             Controls.Add(lblUname);
             Controls.Add(lblRegister);
             Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "RegistrationForm";
             Text = "Marriot Restraunt";
+            Load += RegistrationForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
