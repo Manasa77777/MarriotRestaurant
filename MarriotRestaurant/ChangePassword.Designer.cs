@@ -33,8 +33,8 @@
             txtConPwd = new TextBox();
             lblConPwd = new Label();
             lblCPwd = new Label();
-            txtNewPwd = new TextBox();
             lblNewPwd = new Label();
+            txtNewPwd = new TextBox();
             SuspendLayout();
             // 
             // btnSave
@@ -46,6 +46,7 @@
             btnSave.TabIndex = 23;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // txtConPwd
             // 
@@ -79,14 +80,6 @@
             lblCPwd.TabIndex = 24;
             lblCPwd.Text = "Change Password";
             // 
-            // txtNewPwd
-            // 
-            txtNewPwd.Location = new Point(286, 109);
-            txtNewPwd.Margin = new Padding(5, 4, 5, 4);
-            txtNewPwd.Name = "txtNewPwd";
-            txtNewPwd.Size = new Size(600, 32);
-            txtNewPwd.TabIndex = 26;
-            // 
             // lblNewPwd
             // 
             lblNewPwd.AutoSize = true;
@@ -99,6 +92,14 @@
             lblNewPwd.Size = new Size(217, 25);
             lblNewPwd.TabIndex = 25;
             lblNewPwd.Text = "Enter New Password";
+            // 
+            // txtNewPwd
+            // 
+            txtNewPwd.Location = new Point(286, 110);
+            txtNewPwd.Margin = new Padding(5, 4, 5, 4);
+            txtNewPwd.Name = "txtNewPwd";
+            txtNewPwd.Size = new Size(600, 32);
+            txtNewPwd.TabIndex = 26;
             // 
             // ChangePassword
             // 
@@ -116,6 +117,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "ChangePassword";
             Text = "Change Password";
+            Load += ChangePassword_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,7 +128,7 @@
         private TextBox txtConPwd;
         private Label lblConPwd;
         private Label lblCPwd;
-        private TextBox txtNewPwd;
         private Label lblNewPwd;
+        private TextBox txtNewPwd;
     }
 }
