@@ -49,6 +49,7 @@
             btnClose.TabIndex = 15;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnSave
             // 
@@ -59,6 +60,7 @@
             btnSave.TabIndex = 14;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnDelete
             // 
@@ -69,6 +71,7 @@
             btnDelete.TabIndex = 13;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // txtPrice
             // 
@@ -104,6 +107,10 @@
             // 
             // dgvItem
             // 
+            dgvItem.AllowUserToAddRows = false;
+            dgvItem.AllowUserToDeleteRows = false;
+            dgvItem.AllowUserToResizeColumns = false;
+            dgvItem.AllowUserToResizeRows = false;
             dgvItem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItem.Dock = DockStyle.Top;
             dgvItem.Location = new Point(0, 0);
@@ -111,6 +118,7 @@
             dgvItem.RowHeadersWidth = 51;
             dgvItem.Size = new Size(518, 376);
             dgvItem.TabIndex = 8;
+            dgvItem.RowHeaderMouseClick += dgvItem_RowHeaderMouseClick;
             // 
             // DeleteItem
             // 
@@ -131,6 +139,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "DeleteItem";
             Text = "Delete Items";
+            Load += DeleteItem_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItem).EndInit();
             ResumeLayout(false);
             PerformLayout();

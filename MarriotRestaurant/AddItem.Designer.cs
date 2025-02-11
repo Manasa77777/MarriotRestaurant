@@ -42,6 +42,10 @@
             // 
             // dgvItem
             // 
+            dgvItem.AllowUserToAddRows = false;
+            dgvItem.AllowUserToDeleteRows = false;
+            dgvItem.AllowUserToResizeColumns = false;
+            dgvItem.AllowUserToResizeRows = false;
             dgvItem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItem.Dock = DockStyle.Top;
             dgvItem.Location = new Point(0, 0);
@@ -91,6 +95,7 @@
             btnAdd.TabIndex = 5;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnSave
             // 
@@ -101,6 +106,7 @@
             btnSave.TabIndex = 6;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnClose
             // 
@@ -111,6 +117,7 @@
             btnClose.TabIndex = 7;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // AddItem
             // 

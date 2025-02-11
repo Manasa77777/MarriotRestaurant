@@ -38,9 +38,11 @@ namespace MarriotRestaurant
             if (additemform == null)
             {
                 additemform = new AddItem();
-
             }
-
+            if(additemform.IsDisposed)
+            { 
+                additemform = new AddItem();
+            }
             additemform.MdiParent = this;
             additemform.Show();
         }
