@@ -60,11 +60,15 @@ namespace MarriotRestaurant
 
         private void deleteItemsMenu_Click(object sender, EventArgs e)
         {
-            if (deleteItemform == null)
+            if (deleteItemform == null) //single ton design pattern
             {
                 deleteItemform = new DeleteItem();
             }
 
+             if(deleteItemform.IsDisposed)// to avoid dispose object error while clicking on cross button(close button)
+            {
+                deleteItemform = new DeleteItem();
+            }
             deleteItemform.MdiParent = this;
             deleteItemform.Show();
         }

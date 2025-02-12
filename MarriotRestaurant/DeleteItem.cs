@@ -31,6 +31,7 @@ namespace MarriotRestaurant
         {
             if (txtItem.Text != "" && txtPrice.Text != "")
             {
+                
                 ds.Tables["Items"].Rows[row].Delete();
                 txtItem.Text = txtPrice.Text = "";
                 MessageBox.Show("Item Deleted Successfully  ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -53,9 +54,10 @@ namespace MarriotRestaurant
             cmb = new SqlCommandBuilder(da);
             dgvItem.AutoGenerateColumns = false;
             dgvItem.DataSource = ds.Tables["Items"];
-            GenerateColumns();
+           GenerateColumns();
         }
-        private void GenerateColumns()
+
+        public void GenerateColumns()
         {
             dgvItem.Columns.Clear();
             DataGridViewTextBoxColumn colItemName = new DataGridViewTextBoxColumn();
@@ -92,7 +94,15 @@ namespace MarriotRestaurant
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if(ds.HasChanges())
+            {
+                da.Update(ds, "Items");
+                MessageBox.Show("Data Deleted successfully", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Please delete an item", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

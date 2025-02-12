@@ -49,6 +49,7 @@
             btnClose.TabIndex = 23;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnSave
             // 
@@ -59,6 +60,7 @@
             btnSave.TabIndex = 22;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnEdit
             // 
@@ -69,6 +71,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // txtPrice
             // 
@@ -88,6 +91,7 @@
             // 
             // txtItem
             // 
+            txtItem.Enabled = false;
             txtItem.Location = new Point(204, 419);
             txtItem.Name = "txtItem";
             txtItem.Size = new Size(273, 32);
@@ -104,6 +108,10 @@
             // 
             // dgvItem
             // 
+            dgvItem.AllowUserToAddRows = false;
+            dgvItem.AllowUserToDeleteRows = false;
+            dgvItem.AllowUserToResizeColumns = false;
+            dgvItem.AllowUserToResizeRows = false;
             dgvItem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItem.Dock = DockStyle.Top;
             dgvItem.Location = new Point(0, 0);
@@ -111,6 +119,7 @@
             dgvItem.RowHeadersWidth = 51;
             dgvItem.Size = new Size(549, 395);
             dgvItem.TabIndex = 16;
+            dgvItem.RowHeaderMouseClick += dgvItem_RowHeaderMouseClick;
             // 
             // EditItem
             // 
@@ -131,6 +140,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "EditItem";
             Text = "Edit Item";
+            Load += EditItem_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItem).EndInit();
             ResumeLayout(false);
             PerformLayout();

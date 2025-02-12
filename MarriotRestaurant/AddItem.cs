@@ -40,7 +40,7 @@ namespace MarriotRestaurant
             GenerateColumns();
 
         }
-        private void GenerateColumns()
+        public void GenerateColumns()
         {
             dgvItem.Columns.Clear();
             DataGridViewTextBoxColumn colItemName = new DataGridViewTextBoxColumn();
