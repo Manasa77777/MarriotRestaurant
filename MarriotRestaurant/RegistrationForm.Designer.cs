@@ -173,7 +173,7 @@
             // cmbHintQ
             // 
             cmbHintQ.FormattingEnabled = true;
-            cmbHintQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?" });
+            cmbHintQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
             cmbHintQ.Location = new Point(270, 336);
             cmbHintQ.Name = "cmbHintQ";
             cmbHintQ.Size = new Size(371, 28);

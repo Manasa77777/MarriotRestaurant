@@ -18,7 +18,7 @@ namespace MarriotRestaurant
         DeleteItem deleteItemform;
         RegistrationForm regform;
         DeleteUser delUserform;
-        ChangePassword changepwd;
+        PasswordForm pwdForm;
         ViewUser viewuser;
         BillMaster newBill;
         ViewBill viewBill;
@@ -53,6 +53,10 @@ namespace MarriotRestaurant
             {
                 edititemform = new EditItem();
             }
+            if (edititemform.IsDisposed)
+            {
+                edititemform = new EditItem();
+            }
 
             edititemform.MdiParent = this;
             edititemform.Show();
@@ -84,14 +88,25 @@ namespace MarriotRestaurant
             {
                 regform = new RegistrationForm();
             }
+            
+            
+            if(regform.IsDisposed)
+            {
+                regform = new RegistrationForm();
+                
+            }
             regform.MdiParent = this;
             regform.Show();
-
         }
 
         private void deleteUserMenu_Click(object sender, EventArgs e)
         {
             if (delUserform == null)
+            {
+                delUserform = new DeleteUser();
+
+            }
+            if (delUserform.IsDisposed)
             {
                 delUserform = new DeleteUser();
 
@@ -103,18 +118,28 @@ namespace MarriotRestaurant
 
         private void changePwdUserMenu_Click(object sender, EventArgs e)
         {
-            if (changepwd == null)
+            if (pwdForm == null)
             {
-                changepwd = new ChangePassword();
+                pwdForm = new PasswordForm();
 
             }
-            changepwd.MdiParent = this;
-            changepwd.Show();
+            if (pwdForm.IsDisposed)
+            {
+                pwdForm = new PasswordForm();
+
+            }
+            pwdForm.MdiParent = this;
+            pwdForm.Show();
         }
 
         private void viewUserMenu_Click(object sender, EventArgs e)
         {
             if (viewuser == null)
+            {
+                viewuser = new ViewUser();
+
+            }
+            if (viewuser.IsDisposed)
             {
                 viewuser = new ViewUser();
 
@@ -130,6 +155,11 @@ namespace MarriotRestaurant
                 newBill = new BillMaster();
 
             }
+            if (newBill.IsDisposed)
+            {
+                newBill = new BillMaster();
+
+            }
             newBill.MdiParent = this;
             newBill.Show();
         }
@@ -137,6 +167,11 @@ namespace MarriotRestaurant
         private void viewBillMenu_Click(object sender, EventArgs e)
         {
             if (viewBill == null)
+            {
+                viewBill = new ViewBill();
+
+            }
+            if (viewBill.IsDisposed)
             {
                 viewBill = new ViewBill();
 

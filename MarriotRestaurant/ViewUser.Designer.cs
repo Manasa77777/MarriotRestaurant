@@ -36,6 +36,10 @@
             // 
             // dgvViewUser
             // 
+            dgvViewUser.AllowUserToAddRows = false;
+            dgvViewUser.AllowUserToDeleteRows = false;
+            dgvViewUser.AllowUserToResizeColumns = false;
+            dgvViewUser.AllowUserToResizeRows = false;
             dgvViewUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvViewUser.Dock = DockStyle.Top;
             dgvViewUser.Location = new Point(0, 0);
@@ -54,6 +58,7 @@
             btnClose.TabIndex = 3;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // ViewUser
             // 
@@ -67,6 +72,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "ViewUser";
             Text = "View User";
+            Load += ViewUser_Load;
             ((System.ComponentModel.ISupportInitialize)dgvViewUser).EndInit();
             ResumeLayout(false);
         }

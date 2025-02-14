@@ -7,7 +7,7 @@ namespace MarriotRestaurant
 {
     public partial class LoginForm : Form
     {
-        public static string _Fname, _Lname;
+        public static string _Fname, _Lname ,_Pwd,_Uname;
 
 
 
@@ -41,6 +41,9 @@ namespace MarriotRestaurant
             {
                 _Fname = dr["FirstName"].ToString();
                 _Lname = dr["LastName"].ToString();
+                _Uname = dr["Username"].ToString();
+                _Pwd = dr["Password"].ToString();
+
                 MainForm mf = new MainForm();
                 mf.Show();
                 this.Hide();

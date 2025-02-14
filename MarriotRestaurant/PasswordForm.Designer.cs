@@ -57,6 +57,7 @@
             rtbOldPwd.TabStop = true;
             rtbOldPwd.Text = "Using Old Password";
             rtbOldPwd.UseVisualStyleBackColor = true;
+            rtbOldPwd.CheckedChanged += rtbOldPwd_CheckedChanged;
             // 
             // rtbHintQue
             // 
@@ -69,6 +70,7 @@
             rtbHintQue.TabStop = true;
             rtbHintQue.Text = "Using Hint Question";
             rtbHintQue.UseVisualStyleBackColor = true;
+            rtbHintQue.CheckedChanged += rtbHintQue_CheckedChanged;
             // 
             // lblType
             // 
@@ -83,7 +85,7 @@
             // cmbHQ
             // 
             cmbHQ.FormattingEnabled = true;
-            cmbHQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?" });
+            cmbHQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
             cmbHQ.Location = new Point(327, 161);
             cmbHQ.Name = "cmbHQ";
             cmbHQ.Size = new Size(435, 33);
@@ -95,6 +97,7 @@
             txtOldPwd.Name = "txtOldPwd";
             txtOldPwd.Size = new Size(435, 32);
             txtOldPwd.TabIndex = 4;
+            txtOldPwd.MouseLeave += txtOldPwd_MouseLeave;
             // 
             // lblSelectHQ
             // 
@@ -132,6 +135,7 @@
             txtHAns.Name = "txtHAns";
             txtHAns.Size = new Size(435, 32);
             txtHAns.TabIndex = 7;
+            txtHAns.MouseLeave += txtHAns_MouseLeave;
             // 
             // lblNPwd
             // 
@@ -145,6 +149,7 @@
             // 
             // txtNPwd
             // 
+            txtNPwd.Enabled = false;
             txtNPwd.Location = new Point(327, 301);
             txtNPwd.Name = "txtNPwd";
             txtNPwd.Size = new Size(435, 32);
@@ -162,6 +167,7 @@
             // 
             // txtRNPwd
             // 
+            txtRNPwd.Enabled = false;
             txtRNPwd.Location = new Point(327, 380);
             txtRNPwd.Name = "txtRNPwd";
             txtRNPwd.Size = new Size(435, 32);
@@ -177,6 +183,7 @@
             btnClose.TabIndex = 13;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnSubmit
             // 
@@ -188,6 +195,7 @@
             btnSubmit.TabIndex = 14;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // PasswordForm
             // 
@@ -216,6 +224,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "PasswordForm";
             Text = "Password";
+            Load += PasswordForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

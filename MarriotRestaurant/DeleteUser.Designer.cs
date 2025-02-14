@@ -37,6 +37,10 @@
             // 
             // dgvDeleteUser
             // 
+            dgvDeleteUser.AllowUserToAddRows = false;
+            dgvDeleteUser.AllowUserToDeleteRows = false;
+            dgvDeleteUser.AllowUserToResizeColumns = false;
+            dgvDeleteUser.AllowUserToResizeRows = false;
             dgvDeleteUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDeleteUser.Dock = DockStyle.Top;
             dgvDeleteUser.Location = new Point(0, 0);
@@ -44,6 +48,7 @@
             dgvDeleteUser.RowHeadersWidth = 51;
             dgvDeleteUser.Size = new Size(900, 418);
             dgvDeleteUser.TabIndex = 0;
+            dgvDeleteUser.RowHeaderMouseClick += dgvDeleteUser_RowHeaderMouseClick;
             // 
             // btnDelete
             // 
@@ -53,6 +58,7 @@
             btnDelete.TabIndex = 1;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnClose
             // 
@@ -62,6 +68,7 @@
             btnClose.TabIndex = 2;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // DeleteUser
             // 
@@ -76,6 +83,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "DeleteUser";
             Text = "Delete User";
+            Load += DeleteUser_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDeleteUser).EndInit();
             ResumeLayout(false);
         }
