@@ -63,6 +63,7 @@
             // txtBillNum
             // 
             txtBillNum.BackColor = SystemColors.InactiveBorder;
+            txtBillNum.Enabled = false;
             txtBillNum.Location = new Point(343, 50);
             txtBillNum.Name = "txtBillNum";
             txtBillNum.Size = new Size(435, 32);
@@ -193,6 +194,7 @@
             btnSave.TabIndex = 28;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnClear
             // 
@@ -203,6 +205,7 @@
             btnClear.TabIndex = 29;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnClose
             // 
@@ -213,6 +216,7 @@
             btnClose.TabIndex = 30;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnAddItm
             // 
@@ -223,6 +227,7 @@
             btnAddItm.TabIndex = 31;
             btnAddItm.Text = "Add Item";
             btnAddItm.UseVisualStyleBackColor = false;
+            btnAddItm.Click += btnAddItm_Click;
             // 
             // BillMaster
             // 
@@ -252,7 +257,7 @@
             Controls.Add(txtBillNum);
             Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "BillMaster";
             Text = "Bill Master";
             Load += BillMaster_Load;

@@ -40,6 +40,7 @@
             btnAdd = new Button();
             cmbSelItm = new ComboBox();
             btnOk = new Button();
+            btnRemove = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +77,7 @@
             // txtPrice
             // 
             txtPrice.BackColor = SystemColors.Menu;
+            txtPrice.Enabled = false;
             txtPrice.Location = new Point(210, 139);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(292, 32);
@@ -98,6 +100,7 @@
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(292, 32);
             txtQuantity.TabIndex = 21;
+            txtQuantity.TextChanged += txtQuantity_TextChanged;
             // 
             // lblTotPrice
             // 
@@ -112,6 +115,7 @@
             // txtTotPrice
             // 
             txtTotPrice.BackColor = SystemColors.Menu;
+            txtTotPrice.Enabled = false;
             txtTotPrice.Location = new Point(210, 287);
             txtTotPrice.Name = "txtTotPrice";
             txtTotPrice.Size = new Size(292, 32);
@@ -120,12 +124,13 @@
             // btnAdd
             // 
             btnAdd.BackColor = Color.Tan;
-            btnAdd.Location = new Point(108, 362);
+            btnAdd.Location = new Point(74, 369);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(118, 38);
             btnAdd.TabIndex = 25;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // cmbSelItm
             // 
@@ -136,16 +141,28 @@
             cmbSelItm.Size = new Size(296, 33);
             cmbSelItm.TabIndex = 26;
             cmbSelItm.Text = "--Select item--";
+            cmbSelItm.SelectedIndexChanged += cmbSelItm_SelectedIndexChanged;
             // 
             // btnOk
             // 
             btnOk.BackColor = Color.Tan;
-            btnOk.Location = new Point(262, 362);
+            btnOk.Location = new Point(348, 369);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(118, 38);
             btnOk.TabIndex = 27;
             btnOk.Text = "Ok";
             btnOk.UseVisualStyleBackColor = false;
+            // 
+            // btnRemove
+            // 
+            btnRemove.BackColor = Color.Tan;
+            btnRemove.Location = new Point(207, 369);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(118, 38);
+            btnRemove.TabIndex = 28;
+            btnRemove.Text = "Remove";
+            btnRemove.UseVisualStyleBackColor = false;
+            btnRemove.Click += btnRemove_Click;
             // 
             // BillTrans
             // 
@@ -154,6 +171,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1355, 434);
+            Controls.Add(btnRemove);
             Controls.Add(btnOk);
             Controls.Add(cmbSelItm);
             Controls.Add(btnAdd);
@@ -170,6 +188,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "BillTrans";
             Text = "Select Items";
+            Load += BillTrans_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -188,5 +207,6 @@
         private Button btnAdd;
         private ComboBox cmbSelItm;
         private Button btnOk;
+        private Button btnRemove;
     }
 }

@@ -76,7 +76,7 @@ namespace MarriotRestaurant
                 {
                     MessageBox.Show("Password not successfully updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                con.Close();
             }
         }
 
