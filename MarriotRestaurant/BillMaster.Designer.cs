@@ -72,6 +72,7 @@
             // txtBillDate
             // 
             txtBillDate.BackColor = SystemColors.InactiveBorder;
+            txtBillDate.Enabled = false;
             txtBillDate.Location = new Point(343, 127);
             txtBillDate.Name = "txtBillDate";
             txtBillDate.Size = new Size(435, 32);
@@ -100,6 +101,7 @@
             // txtBillAmount
             // 
             txtBillAmount.BackColor = SystemColors.InactiveBorder;
+            txtBillAmount.Enabled = false;
             txtBillAmount.Location = new Point(343, 196);
             txtBillAmount.Name = "txtBillAmount";
             txtBillAmount.Size = new Size(435, 32);
@@ -116,6 +118,7 @@
             // txtSgst
             // 
             txtSgst.BackColor = SystemColors.InactiveBorder;
+            txtSgst.Enabled = false;
             txtSgst.Location = new Point(343, 258);
             txtSgst.Name = "txtSgst";
             txtSgst.Size = new Size(435, 32);
@@ -134,6 +137,7 @@
             // txtCgst
             // 
             txtCgst.BackColor = SystemColors.InactiveBorder;
+            txtCgst.Enabled = false;
             txtCgst.Location = new Point(343, 319);
             txtCgst.Name = "txtCgst";
             txtCgst.Size = new Size(435, 32);
@@ -166,6 +170,7 @@
             txtDiscount.Name = "txtDiscount";
             txtDiscount.Size = new Size(435, 32);
             txtDiscount.TabIndex = 24;
+            txtDiscount.TextChanged += txtDiscount_TextChanged;
             // 
             // lblTBillAmt
             // 
@@ -180,6 +185,7 @@
             // txtTBillAmt
             // 
             txtTBillAmt.BackColor = SystemColors.InactiveBorder;
+            txtTBillAmt.Enabled = false;
             txtTBillAmt.Location = new Point(343, 439);
             txtTBillAmt.Name = "txtTBillAmt";
             txtTBillAmt.Size = new Size(435, 32);

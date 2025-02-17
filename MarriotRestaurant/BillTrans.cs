@@ -23,6 +23,7 @@ namespace MarriotRestaurant
         DataTable dt;
         DataRow dr;
         string str;
+        int row;
         public BillTrans()
         {
             InitializeComponent();
@@ -54,6 +55,7 @@ namespace MarriotRestaurant
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            ds.Tables["ItemBilling"].Rows[row].Delete();
 
         }
 
@@ -100,6 +102,34 @@ namespace MarriotRestaurant
             dr["TotalPrice"] = txtTotPrice.Text;
             dt.Rows.Add(dr);
             dgvItems.DataSource = ds.Tables["ItemBilling"];
+            CommonData.commonDS =ds.Copy();
+            txtQuantity.Text = txtTotPrice.Text = "";
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            double totalItemAmount = 0;
+            for(int i = 0; i < ds.Tables["ItemBilling"].Rows.Count;i++)
+            {
+                totalItemAmount = totalItemAmount + Convert.ToDouble(ds.Tables["ItemBilling"].Rows[i]["Price"]);
+            }
+            CommonData.totalItemPrice = totalItemAmount;
+
+            CommonData.BillingOrderDateTime = DateTime.Now;
+
+            con = new SqlConnection(str);
+            cmd = new SqlCommand("select SGST from Tax ", con);
+            con.Open();
+           double SGST= Convert.ToDouble(cmd.ExecuteScalar());
+            CommonData.SGSTPrice = (SGST / 100) * totalItemAmount;
+            CommonData.CGSTPrice = CommonData.SGSTPrice;
+            this.Close();
+        }
+
+        private void dgvItems_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+             row = e.RowIndex;
+           
         }
     }
 }

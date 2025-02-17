@@ -53,6 +53,7 @@
             dgvItems.RowHeadersWidth = 51;
             dgvItems.Size = new Size(823, 434);
             dgvItems.TabIndex = 0;
+            dgvItems.RowHeaderMouseClick += dgvItems_RowHeaderMouseClick;
             // 
             // lblSelItm
             // 
@@ -152,6 +153,7 @@
             btnOk.TabIndex = 27;
             btnOk.Text = "Ok";
             btnOk.UseVisualStyleBackColor = false;
+            btnOk.Click += btnOk_Click;
             // 
             // btnRemove
             // 
