@@ -14,10 +14,14 @@ namespace MarriotRestaurant
 {
     public partial class BillMaster : Form
     {
+        SqlDataAdapter da;
+        SqlCommandBuilder cmb;
         public static int BillNo;
         SqlConnection con;
         SqlCommand cmd;
         string str;
+        double Discount;
+        double TotalAmt;
 
         public BillMaster()
         {
@@ -54,7 +58,36 @@ namespace MarriotRestaurant
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                cmd = new SqlCommand($"Insert into BillMaster(BillNumber,BillDate,BillAmount,CGST,SGST,Discount,TotalBill,Username) values({BillNo},{CommonData.BillingOrderDateTime},{CommonData.totalItemPrice},{CommonData.CGSTPrice},{CommonData.SGSTPrice},{Discount},{TotalAmt},'{LoginForm._Uname}')", con);
+                con.Open();
 
+                da = new SqlDataAdapter("Select * from BillTrans", con);
+                cmb = new SqlCommandBuilder(da);
+                int x = cmd.ExecuteNonQuery();
+                if (x > 0)
+                {
+                    if (CommonData.commonDS.HasChanges())
+                    {
+                        da.Update(CommonData.commonDS, "ItemBilling");
+                        MessageBox.Show("Item Ordered Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+           
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -72,8 +105,8 @@ namespace MarriotRestaurant
             if(txtDiscount.Text!="")
             {
                 double AmtBeforeDis= Convert.ToDouble(txtBillAmount.Text)+Convert.ToDouble(txtSgst.Text) +Convert.ToDouble( txtCgst.Text);
-                double Discount = (Convert.ToDouble(txtDiscount.Text) / 100) * AmtBeforeDis;
-                double TotalAmt = AmtBeforeDis - Discount;
+                 Discount = (Convert.ToDouble(txtDiscount.Text) / 100) * AmtBeforeDis;
+                 TotalAmt = AmtBeforeDis - Discount;
                 txtTBillAmt.Text = TotalAmt.ToString();
 
             }
