@@ -159,6 +159,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Marriot Restraunt";
             Load += LoginForm_Load;
             ResumeLayout(false);

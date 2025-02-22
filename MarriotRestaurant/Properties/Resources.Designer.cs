@@ -83,6 +83,16 @@ namespace MarriotRestaurant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap billmasterbg {
+            get {
+                object obj = ResourceManager.GetObject("billmasterbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bin {
             get {
                 object obj = ResourceManager.GetObject("bin", resourceCulture);
@@ -176,6 +186,26 @@ namespace MarriotRestaurant.Properties {
         internal static System.Drawing.Bitmap mainbg {
             get {
                 object obj = ResourceManager.GetObject("mainbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marriotbg {
+            get {
+                object obj = ResourceManager.GetObject("marriotbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marriotbg1 {
+            get {
+                object obj = ResourceManager.GetObject("marriotbg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

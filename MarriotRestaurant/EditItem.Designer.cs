@@ -139,6 +139,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "EditItem";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Item";
             Load += EditItem_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItem).EndInit();

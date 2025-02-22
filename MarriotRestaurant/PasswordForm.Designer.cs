@@ -223,6 +223,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "PasswordForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Password";
             Load += PasswordForm_Load;
             ResumeLayout(false);

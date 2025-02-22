@@ -64,6 +64,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(842, 626);
             Controls.Add(btnClose);
             Controls.Add(dgvViewUser);
@@ -71,6 +72,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "ViewUser";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "View User";
             Load += ViewUser_Load;
             ((System.ComponentModel.ISupportInitialize)dgvViewUser).EndInit();

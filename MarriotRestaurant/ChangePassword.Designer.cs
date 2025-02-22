@@ -105,6 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.marriotbg1;
             ClientSize = new Size(941, 301);
             Controls.Add(txtNewPwd);
             Controls.Add(lblNewPwd);
@@ -116,6 +117,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "ChangePassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Change Password";
             Load += ChangePassword_Load;
             ResumeLayout(false);

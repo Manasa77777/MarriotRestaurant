@@ -265,6 +265,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "BillMaster";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Bill Master";
             Load += BillMaster_Load;
             ResumeLayout(false);

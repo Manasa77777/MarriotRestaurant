@@ -265,6 +265,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "RegistrationForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Marriot Restraunt";
             Load += RegistrationForm_Load;
             ResumeLayout(false);

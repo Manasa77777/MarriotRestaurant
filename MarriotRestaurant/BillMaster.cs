@@ -30,24 +30,30 @@ namespace MarriotRestaurant
 
         private void BillMaster_Load(object sender, EventArgs e)
         {
+            NewBillNo();
+        }
+        private void NewBillNo()
+        {
             str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;
             con = new SqlConnection(str);
             cmd = new SqlCommand("Select  IsNull(Max(BillNumber), 100) + 1 From BillMaster;", con);
-            con.Open();
+            if(con.State!=ConnectionState.Open)
+            {
+                con.Open();
+            }
+            
             txtBillNum.Text = cmd.ExecuteScalar().ToString();
             con.Close();
             BillNo = Convert.ToInt32(txtBillNum.Text);
 
-
         }
-
         private void btnAddItm_Click(object sender, EventArgs e)
         {
             BillTrans billitems = new BillTrans();
             billitems.ShowDialog();
 
 
-            txtBillDate.Text = CommonData.BillingOrderDateTime.ToString();
+            txtBillDate.Text = CommonData.BillingOrderDateTime.ToShortDateString();
             txtBillAmount.Text = CommonData.totalItemPrice.ToString();
             txtSgst.Text = CommonData.SGSTPrice.ToString();
             txtCgst.Text = CommonData.CGSTPrice.ToString();
@@ -60,9 +66,8 @@ namespace MarriotRestaurant
         {
             try
             {
-                cmd = new SqlCommand($"Insert into BillMaster(BillNumber,BillDate,BillAmount,CGST,SGST,Discount,TotalBill,Username) values({BillNo},{CommonData.BillingOrderDateTime},{CommonData.totalItemPrice},{CommonData.CGSTPrice},{CommonData.SGSTPrice},{Discount},{TotalAmt},'{LoginForm._Uname}')", con);
+                cmd.CommandText = $"Insert into BillMaster (BillNumber,BillDate,BillAmount,CGST,SGST,Discount,TotalBill,Username) values({txtBillNum.Text},{txtBillDate.Text},{txtBillAmount.Text},{txtSgst.Text},{txtCgst.Text},{txtDiscount.Text},{txtTBillAmt.Text},'{LoginForm._Uname}')";
                 con.Open();
-
                 da = new SqlDataAdapter("Select * from BillTrans", con);
                 cmb = new SqlCommandBuilder(da);
                 int x = cmd.ExecuteNonQuery();
@@ -75,7 +80,8 @@ namespace MarriotRestaurant
 
                     }
 
-
+                    txtBillAmount.Text = txtBillDate.Text = txtBillNum.Text = txtCgst.Text = txtSgst.Text = txtDiscount.Text = txtTBillAmt.Text= "";
+                    NewBillNo();
 
                 }
             }
@@ -92,7 +98,7 @@ namespace MarriotRestaurant
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            txtBillAmount.Text = txtBillDate.Text = txtBillNum.Text = txtCgst.Text = txtSgst.Text = txtTBillAmt.Text = txtDiscount.Text = "";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

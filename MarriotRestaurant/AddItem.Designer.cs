@@ -137,6 +137,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "AddItem";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Item";
             Load += AddItem_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItem).EndInit();

@@ -138,6 +138,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "DeleteItem";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Delete Items";
             Load += DeleteItem_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItem).EndInit();

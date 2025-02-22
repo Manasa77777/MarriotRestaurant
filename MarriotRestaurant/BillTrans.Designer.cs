@@ -189,6 +189,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "BillTrans";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Select Items";
             Load += BillTrans_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();

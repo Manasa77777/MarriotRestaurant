@@ -107,6 +107,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.billmasterbg;
             ClientSize = new Size(931, 309);
             Controls.Add(btnValidate);
             Controls.Add(lblFPwd);
@@ -118,6 +119,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "ForgetPassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Forgot Password";
             Load += ForgetPassword_Load;
             ResumeLayout(false);

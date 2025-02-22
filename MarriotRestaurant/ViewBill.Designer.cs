@@ -108,6 +108,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.marriotbg;
             ClientSize = new Size(870, 639);
             Controls.Add(btnClose);
             Controls.Add(dgvItemsDetails);
@@ -120,6 +121,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "ViewBill";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "View Bill";
             ((System.ComponentModel.ISupportInitialize)dgvBillDetails).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvItemsDetails).EndInit();

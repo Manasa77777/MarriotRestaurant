@@ -54,7 +54,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(9, 3, 0, 3);
-            menuStrip1.Size = new Size(936, 30);
+            menuStrip1.Size = new Size(1002, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -69,7 +69,7 @@
             // 
             addItemsMenu.Image = Properties.Resources.add;
             addItemsMenu.Name = "addItemsMenu";
-            addItemsMenu.Size = new Size(224, 26);
+            addItemsMenu.Size = new Size(176, 26);
             addItemsMenu.Text = "&Add Items";
             addItemsMenu.Click += addItemsMenu_Click;
             // 
@@ -77,7 +77,7 @@
             // 
             editItemsMenu.Image = Properties.Resources.edit;
             editItemsMenu.Name = "editItemsMenu";
-            editItemsMenu.Size = new Size(224, 26);
+            editItemsMenu.Size = new Size(176, 26);
             editItemsMenu.Text = "&Edit Items";
             editItemsMenu.Click += editItemsMenu_Click;
             // 
@@ -85,7 +85,7 @@
             // 
             deleteItemsMenu.Image = Properties.Resources.bin;
             deleteItemsMenu.Name = "deleteItemsMenu";
-            deleteItemsMenu.Size = new Size(224, 26);
+            deleteItemsMenu.Size = new Size(176, 26);
             deleteItemsMenu.Text = "&Delete items";
             deleteItemsMenu.Click += deleteItemsMenu_Click;
             // 
@@ -93,7 +93,7 @@
             // 
             exitItemMenu.Image = Properties.Resources.exit;
             exitItemMenu.Name = "exitItemMenu";
-            exitItemMenu.Size = new Size(224, 26);
+            exitItemMenu.Size = new Size(176, 26);
             exitItemMenu.Text = "E&xit ";
             exitItemMenu.Click += exitItemMenu_Click;
             // 
@@ -108,7 +108,7 @@
             // 
             newUserMenu.Image = Properties.Resources.newuser;
             newUserMenu.Name = "newUserMenu";
-            newUserMenu.Size = new Size(224, 26);
+            newUserMenu.Size = new Size(207, 26);
             newUserMenu.Text = "Create &New User";
             newUserMenu.Click += newUserMenu_Click;
             // 
@@ -116,7 +116,7 @@
             // 
             deleteUserMenu.Image = Properties.Resources.deleteuser;
             deleteUserMenu.Name = "deleteUserMenu";
-            deleteUserMenu.Size = new Size(224, 26);
+            deleteUserMenu.Size = new Size(207, 26);
             deleteUserMenu.Text = "&Delete User";
             deleteUserMenu.Click += deleteUserMenu_Click;
             // 
@@ -124,7 +124,7 @@
             // 
             changePwdUserMenu.Image = Properties.Resources.reset_password;
             changePwdUserMenu.Name = "changePwdUserMenu";
-            changePwdUserMenu.Size = new Size(224, 26);
+            changePwdUserMenu.Size = new Size(207, 26);
             changePwdUserMenu.Text = "Change Pass&word";
             changePwdUserMenu.Click += changePwdUserMenu_Click;
             // 
@@ -132,7 +132,7 @@
             // 
             viewUserMenu.Image = Properties.Resources.View_user;
             viewUserMenu.Name = "viewUserMenu";
-            viewUserMenu.Size = new Size(224, 26);
+            viewUserMenu.Size = new Size(207, 26);
             viewUserMenu.Text = "&View Users";
             viewUserMenu.Click += viewUserMenu_Click;
             // 
@@ -147,7 +147,7 @@
             // 
             newBillToolStripMenuItem.Image = Properties.Resources.bill;
             newBillToolStripMenuItem.Name = "newBillToolStripMenuItem";
-            newBillToolStripMenuItem.Size = new Size(224, 26);
+            newBillToolStripMenuItem.Size = new Size(149, 26);
             newBillToolStripMenuItem.Text = "&New Bill";
             newBillToolStripMenuItem.Click += newBillToolStripMenuItem_Click;
             // 
@@ -155,7 +155,7 @@
             // 
             viewBillMenu.Image = Properties.Resources.view_bill;
             viewBillMenu.Name = "viewBillMenu";
-            viewBillMenu.Size = new Size(224, 26);
+            viewBillMenu.Size = new Size(149, 26);
             viewBillMenu.Text = "V&iew Bill";
             viewBillMenu.Click += viewBillMenu_Click;
             // 
@@ -175,7 +175,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.mainbg;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(936, 562);
+            ClientSize = new Size(1002, 714);
             Controls.Add(lblUser);
             Controls.Add(menuStrip1);
             Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -184,6 +184,7 @@
             MainMenuStrip = menuStrip1;
             Margin = new Padding(5, 4, 5, 4);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Marriot Restraunt";
             Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);

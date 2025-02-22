@@ -82,6 +82,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "DeleteUser";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Delete User";
             Load += DeleteUser_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDeleteUser).EndInit();
