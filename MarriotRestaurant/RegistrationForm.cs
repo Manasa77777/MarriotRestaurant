@@ -21,23 +21,30 @@ namespace MarriotRestaurant
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string str = ConfigurationManager.ConnectionStrings["Sqlcon"].ConnectionString;
-            SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand($"insert into Users(Username,password,FirstName,LastName,HintQuestion,HintAnswer) values('{txtUname.Text}','{txtPwd.Text}','{txtFName.Text}','{txtLName.Text}','{cmbHintQ.SelectedItem}','{txtHA.Text}')", con);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-            int confirm = cmd.ExecuteNonQuery();
-            if (confirm > 0)
+            if(txtUname.Text.Trim().Length>0 && txtPwd.Text.Trim().Length > 0&&txtFName.Text.Trim().Length > 0 && txtLName.Text.Trim().Length > 0 && cmbHintQ.SelectedItem != "" &&txtHA.Text.Trim().Length>0)
             {
-                MessageBox.Show("You have registered successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtUname.Text = txtPwd.Text = txtFName.Text = txtLName.Text = txtCPwd.Text = txtHA.Text = "";
-                cmbHintQ.SelectedIndex = -1;
+                string str = ConfigurationManager.ConnectionStrings["Sqlcon"].ConnectionString;
+                SqlConnection con = new SqlConnection(str);
+                SqlCommand cmd = new SqlCommand($"insert into Users(Username,password,FirstName,LastName,HintQuestion,HintAnswer) values('{txtUname.Text}','{txtPwd.Text}','{txtFName.Text}','{txtLName.Text}','{cmbHintQ.SelectedItem}','{txtHA.Text}')", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                int confirm = cmd.ExecuteNonQuery();
+                if (confirm > 0)
+                {
+                    MessageBox.Show("You have registered successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtUname.Text = txtPwd.Text = txtFName.Text = txtLName.Text = txtCPwd.Text = txtHA.Text = "";
+                    cmbHintQ.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("Sorry registration cannot be done", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                con.Close();
             }
             else
             {
-                MessageBox.Show("Sorry registration cannot be done", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            con.Close();
         }
 
         private void RegistrationForm_Load(object sender, EventArgs e)

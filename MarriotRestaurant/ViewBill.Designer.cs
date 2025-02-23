@@ -48,6 +48,7 @@
             cmbSBillNum.Size = new Size(309, 33);
             cmbSBillNum.TabIndex = 0;
             cmbSBillNum.Text = "--Select Bill Number--";
+            cmbSBillNum.SelectedIndexChanged += cmbSBillNum_SelectedIndexChanged;
             // 
             // lblSBillNum
             // 
@@ -103,6 +104,7 @@
             btnClose.TabIndex = 14;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // ViewBill
             // 
@@ -123,6 +125,7 @@
             Name = "ViewBill";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View Bill";
+            Load += ViewBill_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBillDetails).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvItemsDetails).EndInit();
             ResumeLayout(false);

@@ -7,7 +7,7 @@ namespace MarriotRestaurant
 {
     public partial class LoginForm : Form
     {
-        public static string _Fname, _Lname ,_Pwd,_Uname;
+        public static string _Fname, _Lname, _Pwd, _Uname;
 
 
 
@@ -30,32 +30,39 @@ namespace MarriotRestaurant
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlDataReader dr;
-            string str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;//storing credentials in str variable
-            SqlConnection con = new SqlConnection(str);//providing credentials to Sql connection class
-            SqlCommand cmd = new SqlCommand($"Select * from Users where Username='{txtUname.Text}' and Password='{txtPwd.Text}'", con);//providing query and connection info to sql command class 
-            cmd.CommandType = CommandType.Text;//telling to sql command class its a query in text format
-            con.Open();
-            dr = cmd.ExecuteReader(); //storing data after executing sql query
-            if (dr.Read())
+            if(txtUname.Text.Trim().Length>0 && txtPwd.Text.Trim().Length>0)
             {
-                _Fname = dr["FirstName"].ToString();
-                _Lname = dr["LastName"].ToString();
-                _Uname = dr["Username"].ToString();
-                _Pwd = dr["Password"].ToString();
+                SqlDataReader dr;
+                string str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;//storing credentials in str variable
+                SqlConnection con = new SqlConnection(str);//providing credentials to Sql connection class
+                SqlCommand cmd = new SqlCommand($"Select * from Users where Username='{txtUname.Text}' and Password='{txtPwd.Text}'", con);//providing query and connection info to sql command class 
+                cmd.CommandType = CommandType.Text;//telling to sql command class its a query in text format
+                con.Open();
+                dr = cmd.ExecuteReader(); //storing data after executing sql query
+                if (dr.Read())
+                {
+                    _Fname = dr["FirstName"].ToString();
+                    _Lname = dr["LastName"].ToString();
+                    _Uname = dr["Username"].ToString();
+                    _Pwd = dr["Password"].ToString();
 
-                MainForm mf = new MainForm();
-                mf.Show();
-                this.Hide();
+                    MainForm mf = new MainForm();
+                    mf.Show();
+                    this.Hide();
 
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password", "Wrong credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUname.Clear();
+                    txtPwd.Clear();
+                }
+                con.Close();
             }
             else
             {
-                MessageBox.Show("Invalid Username or Password", "Wrong credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUname.Clear();
-                txtPwd.Clear();
+                MessageBox.Show("Please enter Username and Password", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            con.Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -68,5 +75,9 @@ namespace MarriotRestaurant
         {
             txtUname.Focus();
         }
+
+       
+
+        
     }
 }
