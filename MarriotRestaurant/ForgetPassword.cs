@@ -29,31 +29,38 @@ namespace MarriotRestaurant
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
-            SqlDataReader dr;
-            string str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;
-            SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand($"Select Username ,HintQuestion,HintAnswer from Users where HintQuestion ='{cmbHintQ.SelectedItem}' and HintAnswer='{txtHA.Text}'",con);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-            dr=cmd.ExecuteReader();
-            if ( dr.Read())
+            if(cmbHintQ.SelectedIndex!= 0 && txtHA.Text.Trim().Length>0)
             {
-                Uname = dr["Username"].ToString();
-                HintQ = dr["HintQuestion"].ToString();
-                HintA = dr["HintAnswer"].ToString();
-                ChangePassword cp = new ChangePassword();
-                cp.Show();
-                this.Hide();
+                SqlDataReader dr;
+                string str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;
+                SqlConnection con = new SqlConnection(str);
+                SqlCommand cmd = new SqlCommand($"Select Username ,HintQuestion,HintAnswer from Users where HintQuestion ='{cmbHintQ.SelectedItem}' and HintAnswer='{txtHA.Text}'", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Uname = dr["Username"].ToString();
+                    HintQ = dr["HintQuestion"].ToString();
+                    HintA = dr["HintAnswer"].ToString();
+                    ChangePassword cp = new ChangePassword();
+                    cp.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Hint Question or Answer", "Wrong credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbHintQ.SelectedIndex = -1;
+                    txtHA.Clear();
+                    cmbHintQ.Focus();
+                }
+
+                con.Close();
             }
             else
             {
-                MessageBox.Show("Invalid Hint Question or Answer", "Wrong credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cmbHintQ.SelectedIndex = -1;
-                txtHA.Clear();
-                cmbHintQ.Focus();
+                MessageBox.Show( "Please Fill all Required Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            con.Close();
         }
     }
 }

@@ -55,6 +55,7 @@
             txtConPwd.Name = "txtConPwd";
             txtConPwd.Size = new Size(600, 32);
             txtConPwd.TabIndex = 22;
+            txtConPwd.Validating += txtConPwd_Validating;
             // 
             // lblConPwd
             // 

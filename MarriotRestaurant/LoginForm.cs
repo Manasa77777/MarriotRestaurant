@@ -30,7 +30,7 @@ namespace MarriotRestaurant
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtUname.Text.Trim().Length>0 && txtPwd.Text.Trim().Length>0)
+            if (txtUname.Text.Trim().Length > 0 && txtPwd.Text.Trim().Length > 0)
             {
                 SqlDataReader dr;
                 string str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;//storing credentials in str variable
@@ -61,7 +61,8 @@ namespace MarriotRestaurant
             }
             else
             {
-                MessageBox.Show("Please enter Username and Password", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                    MessageBox.Show("Please enter Username and Password", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -76,8 +77,8 @@ namespace MarriotRestaurant
             txtUname.Focus();
         }
 
-       
-
         
+
+       
     }
 }

@@ -61,12 +61,13 @@
             // cmbHintQ
             // 
             cmbHintQ.FormattingEnabled = true;
-            cmbHintQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
+            cmbHintQ.Items.AddRange(new object[] { "----Select Security Question----", "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
             cmbHintQ.Location = new Point(292, 118);
             cmbHintQ.Margin = new Padding(5, 4, 5, 4);
             cmbHintQ.Name = "cmbHintQ";
             cmbHintQ.Size = new Size(600, 33);
             cmbHintQ.TabIndex = 16;
+            cmbHintQ.Text = "----Select Security Question----";
             // 
             // lblHQ
             // 

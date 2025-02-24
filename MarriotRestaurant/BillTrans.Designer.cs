@@ -46,6 +46,10 @@
             // 
             // dgvItems
             // 
+            dgvItems.AllowUserToAddRows = false;
+            dgvItems.AllowUserToDeleteRows = false;
+            dgvItems.AllowUserToResizeColumns = false;
+            dgvItems.AllowUserToResizeRows = false;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Dock = DockStyle.Right;
             dgvItems.Location = new Point(532, 0);

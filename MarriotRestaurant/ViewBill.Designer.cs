@@ -70,6 +70,10 @@
             // 
             // dgvBillDetails
             // 
+            dgvBillDetails.AllowUserToAddRows = false;
+            dgvBillDetails.AllowUserToDeleteRows = false;
+            dgvBillDetails.AllowUserToResizeColumns = false;
+            dgvBillDetails.AllowUserToResizeRows = false;
             dgvBillDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBillDetails.Location = new Point(12, 153);
             dgvBillDetails.Name = "dgvBillDetails";
@@ -88,6 +92,10 @@
             // 
             // dgvItemsDetails
             // 
+            dgvItemsDetails.AllowUserToAddRows = false;
+            dgvItemsDetails.AllowUserToDeleteRows = false;
+            dgvItemsDetails.AllowUserToResizeColumns = false;
+            dgvItemsDetails.AllowUserToResizeRows = false;
             dgvItemsDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItemsDetails.Location = new Point(12, 365);
             dgvItemsDetails.Name = "dgvItemsDetails";
