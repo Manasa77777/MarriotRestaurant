@@ -64,36 +64,42 @@ namespace MarriotRestaurant
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if(txtBillDate.Text.Trim().Length>0 && txtBillAmount.Text.Trim().Length>0 && txtSgst.Text.Trim().Length > 0&& txtCgst.Text.Trim().Length > 0&& txtDiscount.Text.Trim().Length>0 && txtTBillAmt.Text.Trim().Length>0)
             {
-                cmd.CommandText = $"Insert into BillMaster (BillNumber,BillDate,BillAmount,CGST,SGST,Discount,TotalBill,Username) values({txtBillNum.Text},{txtBillDate.Text},{txtBillAmount.Text},{txtSgst.Text},{txtCgst.Text},{txtDiscount.Text},{txtTBillAmt.Text},'{LoginForm._Uname}')";
-                con.Open();
-                da = new SqlDataAdapter("Select * from BillTrans", con);
-                cmb = new SqlCommandBuilder(da);
-                int x = cmd.ExecuteNonQuery();
-                if (x > 0)
+                try
                 {
-                    if (CommonData.commonDS.HasChanges())
+                    cmd.CommandText = $"Insert into BillMaster (BillNumber,BillDate,BillAmount,CGST,SGST,Discount,TotalBill,Username) values({txtBillNum.Text},{txtBillDate.Text},{txtBillAmount.Text},{txtSgst.Text},{txtCgst.Text},{txtDiscount.Text},{txtTBillAmt.Text},'{LoginForm._Uname}')";
+                    con.Open();
+                    da = new SqlDataAdapter("Select * from BillTrans", con);
+                    cmb = new SqlCommandBuilder(da);
+                    int x = cmd.ExecuteNonQuery();
+                    if (x > 0)
                     {
-                        da.Update(CommonData.commonDS, "ItemBilling");
-                        MessageBox.Show("Item Ordered Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (CommonData.commonDS.HasChanges())
+                        {
+                            da.Update(CommonData.commonDS, "ItemBilling");
+                            MessageBox.Show("Item Ordered Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+
+                        txtBillAmount.Text = txtBillDate.Text = txtBillNum.Text = txtCgst.Text = txtSgst.Text = txtDiscount.Text = txtTBillAmt.Text = "";
+                        NewBillNo();
 
                     }
-
-                    txtBillAmount.Text = txtBillDate.Text = txtBillNum.Text = txtCgst.Text = txtSgst.Text = txtDiscount.Text = txtTBillAmt.Text= "";
-                    NewBillNo();
-
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
                 }
             }
-            catch (Exception ex)
+              else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please Enter all the details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                con.Close();
-            }
-           
         }
 
         private void btnClear_Click(object sender, EventArgs e)

@@ -49,6 +49,7 @@
             dgvDeleteUser.Size = new Size(900, 418);
             dgvDeleteUser.TabIndex = 0;
             dgvDeleteUser.RowHeaderMouseClick += dgvDeleteUser_RowHeaderMouseClick;
+            dgvDeleteUser.RowValidating += dgvDeleteUser_RowValidating;
             // 
             // btnDelete
             // 

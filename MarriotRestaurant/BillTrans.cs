@@ -31,7 +31,7 @@ namespace MarriotRestaurant
 
         private void BillTrans_Load(object sender, EventArgs e)
         {
-
+            cmbSelItm.Items.Add("--Select item--");
             str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;
             da = new SqlDataAdapter("select ItemName from items order by ItemName asc", str);
             ds = new DataSet();
@@ -94,36 +94,51 @@ namespace MarriotRestaurant
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            dr = dt.NewRow();
-            dr["BillNumber"] = BillMaster.BillNo;
-            dr["ItemName"] = cmbSelItm.SelectedItem;
-            dr["Price"] = txtPrice.Text;
-            dr["Quantity"] = txtQuantity.Text;
-            dr["TotalPrice"] = txtTotPrice.Text;
-            dt.Rows.Add(dr);
-            dgvItems.DataSource = ds.Tables["ItemBilling"];
-            CommonData.commonDS =ds.Copy();
-            txtQuantity.Text = txtTotPrice.Text = "";
+
+            if (cmbSelItm.SelectedIndex > 0 && txtPrice.Text.Trim().Length > 0 && txtQuantity.Text.Trim().Length > 0 && txtTotPrice.Text.Trim().Length > 0)
+            {
+                dr = dt.NewRow();
+                dr["BillNumber"] = BillMaster.BillNo;
+                dr["ItemName"] = cmbSelItm.SelectedItem;
+                dr["Price"] = txtPrice.Text;
+                dr["Quantity"] = txtQuantity.Text;
+                dr["TotalPrice"] = txtTotPrice.Text;
+                dt.Rows.Add(dr);
+                dgvItems.DataSource = ds.Tables["ItemBilling"];
+                CommonData.commonDS = ds.Copy();
+                txtQuantity.Text = txtTotPrice.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Please enter all Required Fields","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            double totalItemAmount = 0;
-            for(int i = 0; i < ds.Tables["ItemBilling"].Rows.Count;i++)
+            if(dgvItems.Rows.Count!=0)
             {
-                totalItemAmount = totalItemAmount + Convert.ToDouble(ds.Tables["ItemBilling"].Rows[i]["Price"]);
+                double totalItemAmount = 0;
+                for (int i = 0; i < ds.Tables["ItemBilling"].Rows.Count; i++)
+                {
+                    totalItemAmount = totalItemAmount + Convert.ToDouble(ds.Tables["ItemBilling"].Rows[i]["Price"]);
+                }
+                CommonData.totalItemPrice = totalItemAmount;
+
+                CommonData.BillingOrderDateTime = DateTime.Now;
+
+                con = new SqlConnection(str);
+                cmd = new SqlCommand("select SGST from Tax ", con);
+                con.Open();
+                double SGST = Convert.ToDouble(cmd.ExecuteScalar());
+                CommonData.SGSTPrice = (SGST / 100) * totalItemAmount;
+                CommonData.CGSTPrice = CommonData.SGSTPrice;
+                this.Close();
             }
-            CommonData.totalItemPrice = totalItemAmount;
-
-            CommonData.BillingOrderDateTime = DateTime.Now;
-
-            con = new SqlConnection(str);
-            cmd = new SqlCommand("select SGST from Tax ", con);
-            con.Open();
-           double SGST= Convert.ToDouble(cmd.ExecuteScalar());
-            CommonData.SGSTPrice = (SGST / 100) * totalItemAmount;
-            CommonData.CGSTPrice = CommonData.SGSTPrice;
-            this.Close();
+            else
+            {
+                MessageBox.Show("Please add items to the bill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvItems_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

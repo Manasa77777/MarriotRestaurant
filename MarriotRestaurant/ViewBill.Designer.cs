@@ -77,6 +77,7 @@
             dgvBillDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBillDetails.Location = new Point(12, 153);
             dgvBillDetails.Name = "dgvBillDetails";
+            dgvBillDetails.ReadOnly = true;
             dgvBillDetails.RowHeadersWidth = 51;
             dgvBillDetails.Size = new Size(831, 140);
             dgvBillDetails.TabIndex = 3;
@@ -99,6 +100,7 @@
             dgvItemsDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItemsDetails.Location = new Point(12, 365);
             dgvItemsDetails.Name = "dgvItemsDetails";
+            dgvItemsDetails.ReadOnly = true;
             dgvItemsDetails.RowHeadersWidth = 51;
             dgvItemsDetails.Size = new Size(831, 192);
             dgvItemsDetails.TabIndex = 5;

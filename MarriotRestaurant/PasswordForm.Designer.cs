@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordForm));
-            rtbOldPwd = new RadioButton();
-            rtbHintQue = new RadioButton();
+            rbOldPwd = new RadioButton();
+            rbHintQue = new RadioButton();
             lblType = new Label();
             cmbHQ = new ComboBox();
             txtOldPwd = new TextBox();
@@ -46,31 +46,31 @@
             btnSubmit = new Button();
             SuspendLayout();
             // 
-            // rtbOldPwd
+            // rbOldPwd
             // 
-            rtbOldPwd.AutoSize = true;
-            rtbOldPwd.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            rtbOldPwd.Location = new Point(99, 100);
-            rtbOldPwd.Name = "rtbOldPwd";
-            rtbOldPwd.Size = new Size(258, 29);
-            rtbOldPwd.TabIndex = 0;
-            rtbOldPwd.TabStop = true;
-            rtbOldPwd.Text = "Using Old Password";
-            rtbOldPwd.UseVisualStyleBackColor = true;
-            rtbOldPwd.CheckedChanged += rtbOldPwd_CheckedChanged;
+            rbOldPwd.AutoSize = true;
+            rbOldPwd.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            rbOldPwd.Location = new Point(99, 100);
+            rbOldPwd.Name = "rbOldPwd";
+            rbOldPwd.Size = new Size(258, 29);
+            rbOldPwd.TabIndex = 0;
+            rbOldPwd.TabStop = true;
+            rbOldPwd.Text = "Using Old Password";
+            rbOldPwd.UseVisualStyleBackColor = true;
+            rbOldPwd.CheckedChanged += rbOldPwd_CheckedChanged;
             // 
-            // rtbHintQue
+            // rbHintQue
             // 
-            rtbHintQue.AutoSize = true;
-            rtbHintQue.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            rtbHintQue.Location = new Point(366, 100);
-            rtbHintQue.Name = "rtbHintQue";
-            rtbHintQue.Size = new Size(257, 29);
-            rtbHintQue.TabIndex = 1;
-            rtbHintQue.TabStop = true;
-            rtbHintQue.Text = "Using Hint Question";
-            rtbHintQue.UseVisualStyleBackColor = true;
-            rtbHintQue.CheckedChanged += rtbHintQue_CheckedChanged;
+            rbHintQue.AutoSize = true;
+            rbHintQue.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            rbHintQue.Location = new Point(366, 100);
+            rbHintQue.Name = "rbHintQue";
+            rbHintQue.Size = new Size(257, 29);
+            rbHintQue.TabIndex = 1;
+            rbHintQue.TabStop = true;
+            rbHintQue.Text = "Using Hint Question";
+            rbHintQue.UseVisualStyleBackColor = true;
+            rbHintQue.CheckedChanged += rbHintQue_CheckedChanged;
             // 
             // lblType
             // 
@@ -85,11 +85,12 @@
             // cmbHQ
             // 
             cmbHQ.FormattingEnabled = true;
-            cmbHQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
+            cmbHQ.Items.AddRange(new object[] { "----Select Security Question----", "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
             cmbHQ.Location = new Point(327, 161);
             cmbHQ.Name = "cmbHQ";
             cmbHQ.Size = new Size(435, 33);
             cmbHQ.TabIndex = 3;
+            cmbHQ.Text = "----Select Security Question----";
             // 
             // txtOldPwd
             // 
@@ -172,6 +173,7 @@
             txtRNPwd.Name = "txtRNPwd";
             txtRNPwd.Size = new Size(435, 32);
             txtRNPwd.TabIndex = 11;
+            txtRNPwd.Validating += txtRNPwd_Validating;
             // 
             // btnClose
             // 
@@ -217,8 +219,8 @@
             Controls.Add(txtOldPwd);
             Controls.Add(cmbHQ);
             Controls.Add(lblType);
-            Controls.Add(rtbHintQue);
-            Controls.Add(rtbOldPwd);
+            Controls.Add(rbHintQue);
+            Controls.Add(rbOldPwd);
             Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
@@ -232,8 +234,8 @@
 
         #endregion
 
-        private RadioButton rtbOldPwd;
-        private RadioButton rtbHintQue;
+        private RadioButton rbOldPwd;
+        private RadioButton rbHintQue;
         private Label lblType;
         private ComboBox cmbHQ;
         private TextBox txtOldPwd;

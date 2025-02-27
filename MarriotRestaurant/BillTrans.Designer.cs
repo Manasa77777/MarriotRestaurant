@@ -54,6 +54,7 @@
             dgvItems.Dock = DockStyle.Right;
             dgvItems.Location = new Point(532, 0);
             dgvItems.Name = "dgvItems";
+            dgvItems.ReadOnly = true;
             dgvItems.RowHeadersWidth = 51;
             dgvItems.Size = new Size(823, 434);
             dgvItems.TabIndex = 0;

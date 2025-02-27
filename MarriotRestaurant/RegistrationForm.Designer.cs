@@ -107,6 +107,7 @@
             txtCPwd.Size = new Size(371, 28);
             txtCPwd.TabIndex = 6;
             txtCPwd.UseSystemPasswordChar = true;
+            txtCPwd.Validating += txtCPwd_Validating;
             // 
             // lblCPwd
             // 
@@ -173,11 +174,13 @@
             // cmbHintQ
             // 
             cmbHintQ.FormattingEnabled = true;
-            cmbHintQ.Items.AddRange(new object[] { "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
+            cmbHintQ.Items.AddRange(new object[] { "-----Select Hint Question-----", "What was the name of your favorite childhood pet?", "What is your favorite sport?", "What’s your home address?", "What is your brightest childhood dream?", "What was the name of your first childhood friend?", "whats your DOB?" });
             cmbHintQ.Location = new Point(270, 336);
             cmbHintQ.Name = "cmbHintQ";
             cmbHintQ.Size = new Size(371, 28);
             cmbHintQ.TabIndex = 12;
+            cmbHintQ.Text = "-----Select Hint Question-----";
+            cmbHintQ.SelectedIndexChanged += cmbHintQ_SelectedIndexChanged;
             // 
             // txtHA
             // 

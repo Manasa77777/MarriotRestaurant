@@ -21,7 +21,7 @@ namespace MarriotRestaurant
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if(txtUname.Text.Trim().Length>0 && txtPwd.Text.Trim().Length > 0&&txtFName.Text.Trim().Length > 0 && txtLName.Text.Trim().Length > 0 && cmbHintQ.SelectedItem != "" &&txtHA.Text.Trim().Length>0)
+            if (txtUname.Text.Trim().Length > 0 && txtPwd.Text.Trim().Length > 0 && txtFName.Text.Trim().Length > 0 && txtLName.Text.Trim().Length > 0 && cmbHintQ.SelectedItem != "" && txtHA.Text.Trim().Length > 0)
             {
                 string str = ConfigurationManager.ConnectionStrings["Sqlcon"].ConnectionString;
                 SqlConnection con = new SqlConnection(str);
@@ -62,6 +62,26 @@ namespace MarriotRestaurant
         {
             this.Close();
             //Application.Exit();
+        }
+
+        private void txtCPwd_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtPwd.Text != txtCPwd.Text)
+            {
+                MessageBox.Show("Password and Confirm Password should be same", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCPwd.Text = txtPwd.Text = "";
+                txtPwd.Focus();
+            }
+
+        }
+
+        private void cmbHintQ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbHintQ.SelectedIndex==0)
+            {
+                MessageBox.Show("Please Choose Security question", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbHintQ.SelectedIndex = -1;
+            }
         }
     }
 }

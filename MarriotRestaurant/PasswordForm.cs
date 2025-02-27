@@ -24,13 +24,13 @@ namespace MarriotRestaurant
 
         private void PasswordForm_Load(object sender, EventArgs e)
         {
-            
+
             str = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;
-             con = new SqlConnection(str);
+            con = new SqlConnection(str);
 
         }
 
-        private void rtbOldPwd_CheckedChanged(object sender, EventArgs e)
+        private void rbOldPwd_CheckedChanged(object sender, EventArgs e)
         {
             cmbHQ.Visible = false;
             lblSelectHQ.Visible = false;
@@ -43,7 +43,7 @@ namespace MarriotRestaurant
             txtRNPwd.Enabled = false;
         }
 
-        private void rtbHintQue_CheckedChanged(object sender, EventArgs e)
+        private void rbHintQue_CheckedChanged(object sender, EventArgs e)
         {
             cmbHQ.Visible = true;
             lblSelectHQ.Visible = true;
@@ -60,23 +60,29 @@ namespace MarriotRestaurant
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(txtNPwd.Text.Trim().Length>0)
+            if (rbOldPwd.Checked && txtOldPwd.Text.Trim().Length > 0 && txtNPwd.Text.Trim().Length > 0 && txtRNPwd.Text.Trim().Length > 0 || rbHintQue.Checked && cmbHQ.SelectedIndex > 0 && txtHAns.Text.Trim().Length > 0 && txtNPwd.Text.Trim().Length > 0 && txtRNPwd.Text.Trim().Length > 0)
             {
-                
+
                 SqlCommand cmd = new SqlCommand($"update Users set Password='{txtNPwd.Text}' where Username='{LoginForm._Uname}'", con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
-                if(result>0)
+                if (result > 0)
                 {
                     MessageBox.Show("Password changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtHAns.Text = txtNPwd.Text = txtRNPwd.Text = txtOldPwd.Text = "";
-                    cmbHQ.SelectedIndex = -1;
+                    cmbHQ.SelectedIndex = 0;
+                    txtNPwd.Enabled = false;
+                    txtRNPwd.Enabled = false;
                 }
                 else
                 {
                     MessageBox.Show("Password not successfully updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 con.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -89,7 +95,7 @@ namespace MarriotRestaurant
         {
             if (txtOldPwd.Text.Trim().Length != 0)
             {
-                
+
                 SqlCommand cmd = new SqlCommand($"Select FirstName from Users where Username='{LoginForm._Uname}' and Password='{txtOldPwd.Text}'", con);
                 con.Open();
                 object Name = cmd.ExecuteScalar();
@@ -110,9 +116,9 @@ namespace MarriotRestaurant
 
         private void txtHAns_MouseLeave(object sender, EventArgs e)
         {
-            if (cmbHQ.SelectedIndex>-1 && txtHAns.Text.Trim().Length>0)
+            if (cmbHQ.SelectedIndex > -1 && txtHAns.Text.Trim().Length > 0)
             {
-                
+
                 SqlCommand cmd = new SqlCommand($"Select FirstName from Users where Username='{LoginForm._Uname}' and HintQuestion='{cmbHQ.SelectedItem}' and HintAnswer='{txtHAns.Text}' ", con);
                 con.Open();
                 object Name = cmd.ExecuteScalar();
@@ -130,6 +136,15 @@ namespace MarriotRestaurant
                 con.Close();
             }
         }
+
+        private void txtRNPwd_Validating(object sender, CancelEventArgs e)
+        {
+            if(txtNPwd.Text!=txtRNPwd.Text)
+            {
+                MessageBox.Show("Password does not match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNPwd.Text = txtRNPwd.Text = "";
+            }
+        }
     }
-    }
+}
 

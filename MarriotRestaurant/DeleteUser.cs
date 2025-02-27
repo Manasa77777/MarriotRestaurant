@@ -17,7 +17,7 @@ namespace MarriotRestaurant
         SqlDataAdapter da;
         DataSet ds;
         SqlCommandBuilder cmb;
-        string str,Uname,Pwd;
+        string str, Uname, Pwd;
         int row;
         public DeleteUser()
         {
@@ -41,7 +41,7 @@ namespace MarriotRestaurant
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(LoginForm._Uname!=Uname&& LoginForm._Pwd!=Pwd)
+            if (LoginForm._Uname != Uname && LoginForm._Pwd != Pwd)
             {
                 ds.Tables["Users"].Rows[row].Delete();
                 da.Update(ds, "Users");
@@ -51,6 +51,8 @@ namespace MarriotRestaurant
             {
                 MessageBox.Show("Sorry you cant delete logged User Account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -64,6 +66,16 @@ namespace MarriotRestaurant
             row = e.RowIndex;
             Uname = ds.Tables["Users"].Rows[row]["Username"].ToString();
             Pwd = ds.Tables["Users"].Rows[row]["Password"].ToString();
+        }
+
+        
+
+        private void dgvDeleteUser_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if(e.RowIndex==-1)
+            {
+                MessageBox.Show("please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

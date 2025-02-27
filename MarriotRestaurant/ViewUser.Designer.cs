@@ -42,6 +42,7 @@
             dgvViewUser.AllowUserToResizeRows = false;
             dgvViewUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvViewUser.Dock = DockStyle.Top;
+            dgvViewUser.Enabled = false;
             dgvViewUser.Location = new Point(0, 0);
             dgvViewUser.Margin = new Padding(5, 4, 5, 4);
             dgvViewUser.Name = "dgvViewUser";
